@@ -24,6 +24,7 @@ Relacional (SQL): É como uma planilha super turbinada, onde os dados são divid
 . É o foco do nosso curso!
 Não-Relacional (NoSQL): Os dados não ficam em tabelas, mas em "documentos" (como pastas) flexíveis. É ótimo para lidar com dados muito variados e gigantescos (Big Data)
 .
+
 🟡 Módulo 2: Desenhando o Banco (Modelagem de Dados)
 Antes de programar, a gente desenha! Se você sair criando tabelas sem pensar, vai ter um retrabalho enorme
 .
@@ -50,6 +51,7 @@ Muitos para Muitos (N:N): Um aluno pode comprar vários cursos e um curso pode t
 .
 Cortar excessos: Nunca guarde uma informação que pode ser calculada. Ex: se você tem o valor do produto e a quantidade, não crie uma coluna "Valor Total". O banco de dados calcula isso na hora para você e poupa espaço
 .
+
 🟠 Módulo 3: Mão na Massa (Instalando o PostgreSQL)
 O PostgreSQL é um dos bancos de dados relacionais mais avançados e robustos do mundo, criado inicialmente em Berkeley, e é totalmente gratuito (Open Source)
 .
@@ -65,6 +67,7 @@ pgAdmin: Pela interface gráfica, usando o mouse para criar bancos e tabelas
 .
 psql: Pela tela preta (terminal de linha de comando) onde você digita os comandos diretamente
 .
+
 🔴 Módulo 4: Aprendendo a Falar SQL (Nível Intermediário)
 O SQL (Structured Query Language) é o idioma que o banco de dados entende
 . Ele se divide em grupos, como o DDL (para criar estruturas) e o DML (para manipular os dados)
@@ -87,6 +90,7 @@ Atualizar (UPDATE): UPDATE usuarios SET idade = 50 WHERE nome = 'João'; (Sempre
 .
 Apagar (DELETE): DELETE FROM usuarios WHERE nome = 'João';
 .
+
 🟣 Módulo 5: Nível Avançado
 Você já sabe fazer o feijão com arroz. Agora vamos acelerar!
 1. Juntando Tabelas (JOIN): Se temos os dados de pedidos em uma tabela e de usuários em outra, usamos as chaves (PK e FK) para uní-las
@@ -100,6 +104,7 @@ Você já sabe fazer o feijão com arroz. Agora vamos acelerar!
 .
 4. Views (Visões): Cansado de escrever consultas gigantes? Você pode criar uma View. É como tirar uma "foto" de uma consulta complexa e salvá-la no banco como se fosse uma tabela virtual, garantindo também segurança e controle de acesso
 .
+
 ⬛ Módulo 6: Nível Expert (Performance e Administração)
 Parabéns, você chegou ao topo! Um verdadeiro profissional cuida da manutenção e segurança.
 1. Índices e EXPLAIN ANALYZE (Performance) Se o seu sistema ficar lento com milhões de registros, você cria Índices (CREATE INDEX). O índice organiza as buscas, como o índice de um livro, para o banco não precisar ler a tabela inteira linha por linha
@@ -126,7 +131,9 @@ Resposta da IA:
 
 A diferença entre os dois é muito simples de entender se usarmos uma analogia. Pense no PostgreSQL como se fosse o motor de um carro super potente. Ele é o melhor do mundo para guardar e organizar dados, mas sozinho, ele é apenas o motor. Para fazer um aplicativo de verdade funcionar na internet, você ainda precisaria construir o chassi, as rodas, o volante... ou seja, precisaria programar toda a parte de login de usuários, envio de imagens e a comunicação com a internet.
 Já o Supabase é o carro inteiro, pronto para dirigir, que vem com esse motor do PostgreSQL já embutido!
+
 Aqui está a explicação exata de como eles se separam:
+
 PostgreSQL: É o banco de dados puro. A única função dele é armazenar, organizar e fornecer os seus dados com extrema segurança e velocidade
 . Se você for usar apenas ele, terá que programar e configurar o resto do seu sistema do zero.
 Supabase: É o que na área de tecnologia chamamos de BaaS (Backend as a Service ou Backend como Serviço)
@@ -148,6 +155,7 @@ Resposta da IA:
 
 Essa é uma daquelas perguntas de ouro! Como professor, eu vejo meus alunos tropeçando nas mesmas "pedras" o tempo todo. O banco de dados exige uma forma diferente de pensar, e quando mudamos do Excel ou de outros bancos para o PostgreSQL, alguns conceitos dão um verdadeiro "nó" na cabeça.
 Aqui estão os 5 principais assuntos que mais confundem os iniciantes (e até alguns veteranos!), explicados com exemplos práticos:
+
 1. Relacionamentos "Muitos para Muitos" (N:N)
 A Confusão: O aluno entende que um Professor tem apenas um Curso (1:1), ou que um Curso tem várias Vendas (1:N)
 . Mas quando a relação é "Muitos para Muitos", a mente trava. As pessoas tentam colocar vários IDs separados por vírgula na mesma coluna. Como funciona na prática: Pense no exemplo de Alunos e Cursos. Um aluno pode comprar muitos cursos, e um curso pode ter muitos alunos cadastrados
@@ -156,6 +164,7 @@ A Confusão: O aluno entende que um Professor tem apenas um Curso (1:1), ou que 
 Exemplo: Você cria a tabela alunos_cursos que vai guardar apenas: "O Aluno ID 1 comprou o Curso ID 5" e "O Aluno ID 1 comprou o Curso ID 8"
 . Isso evita duplicação de dados e mantém tudo organizado
 .
+
 2. A Ilusão de Guardar "Tudo" (Falta de Normalização)
 A Confusão: Quem vem das planilhas adora criar colunas para tudo, como telefone_1, telefone_2, ou pior, colocar todos os telefones juntos na mesma célula
 . Outro erro clássico é criar uma coluna de Valor Total
@@ -167,6 +176,7 @@ A Regra do Cálculo (3ª Forma Normal): Nunca guarde um dado que pode ser calcul
 . Se você já tem a quantidade e o valor_da_compra, não precisa de uma coluna total
 . O banco calcula isso matematicamente na hora da consulta, poupando espaço e garantindo que o valor nunca fique desatualizado
 .
+
 3. A faxina dos dados: O MVCC e o "Fantasma" do VACUUM
 A Confusão: Quando você atualiza (UPDATE) ou apaga (DELETE) um registro, você acha que ele sumiu do disco rígido imediatamente, certo? Errado! Como funciona na prática: O PostgreSQL possui uma arquitetura chamada MVCC
 . Para garantir a segurança caso algo dê errado no meio do caminho, ele não apaga a linha antiga na hora; ele cria uma nova versão da linha e deixa a antiga invisível
@@ -175,12 +185,14 @@ O Problema: Essas linhas antigas invisíveis viram "tuplas mortas" (dead tuples)
 .
 A Solução: O PostgreSQL exige um processo de manutenção contínuo chamado VACUUM (Aspirador de Pó), que é o comando responsável por varrer o banco, limpar esse lixo invisível e liberar o espaço em disco
 .
+
 4. DDL Transacional (Desfazendo erros graves)
 A Confusão: Quem programa em outros bancos (como Oracle ou MySQL) está acostumado que comandos de criação (CREATE TABLE) ou de limpeza total (TRUNCATE TABLE) são ações irreversíveis que acontecem na hora
 . Como funciona na prática: O PostgreSQL tem um superpoder que surpreende muitos desenvolvedores: suas alterações de estrutura (DDL) são transacionais
 .
 Exemplo: Se você estiver dentro de um bloco de transação, criar uma tabela inteira ou der um TRUNCATE (que limpa todos os dados de uma tabela) e depois perceber que fez besteira, você pode simplesmente usar o comando ROLLBACK e o PostgreSQL desfaz até mesmo a criação ou limpeza daquela tabela!
 .
+
 5. O Tipo de Dado: JSON vs. JSONB
 A Confusão: O PostgreSQL é tão poderoso que permite salvar dados no estilo "Não-Relacional" (NoSQL) dentro dele, usando o formato JSON
 . A confusão é que existem dois tipos: json e jsonb
@@ -202,34 +214,40 @@ Essa é uma dúvida fantástica para quem está dando os próximos passos! Como 
 . A "melhor" escolha vai depender do que você quer construir!
 Aqui estão as linguagens mais populares para trabalhar com PostgreSQL e como elas se conectam a ele:
 🏆 As Campeãs de Popularidade
+
 1. Python (Ideal para Dados e Web)
 Por que usar: Excelente para Ciência de Dados, Inteligência Artificial e desenvolvimento web (com frameworks como Django)
 .
 Como integra: Utiliza bibliotecas de conexão muito famosas, como o psycopg2 ou PgSQL
 . Você também pode usar um ORM (como o SQLAlchemy), que transforma as tabelas do banco em objetos do Python, para não precisar escrever SQL na mão o tempo todo
 .
+
 2. JavaScript / Node.js (Ideal para Web Moderna)
 Por que usar: É a linguagem queridinha das startups para criar aplicativos web escaláveis que atualizam em tempo real
 .
 Como integra: Geralmente através de bibliotecas como o node-postgres, que se comunicam nativamente com o banco, inclusive suportando notificações assíncronas
 .
+
 3. Java (O Rei do Mundo Corporativo)
 Por que usar: A maior parte dos grandes sistemas de bancos, seguradoras e governos usa Java (com frameworks como Hibernate)
 .
 Como integra: A integração é feita através de uma tecnologia chamada JDBC (Java Database Connectivity). Você apenas adiciona um pequeno arquivo de driver (um .jar) no seu projeto, e ele faz a ponte de comunicação com o PostgreSQL
 .
+
 4. PHP (Clássico da Internet)
 Por que usar: A base de grande parte da internet. O PostgreSQL é uma das estrelas da famosa pilha "LAPP" (Linux, Apache, PHP, Postgres)
 .
 Como integra: Possui comandos nativos muito fáceis. Você digita algo simples no código como $conexao = pg_connect('host=localhost port=5432 dbname=postgres user=postgres password=senha'); e já está conversando com o banco
 . Frameworks como o Doctrine também ajudam na manipulação dos dados
 .
+
 5. C / C++ (Para Alta Performance)
 Por que usar: Quando você precisa do máximo de velocidade possível.
 Como integra: Usa a biblioteca oficial e nativa do PostgreSQL chamada libpq
 . Na verdade, muitas das linguagens acima usam a libpq escondida por trás dos panos!
 Além dessas, o PostgreSQL tem suporte excelente para Go, Rust, Ruby e Julia
 .
+
 ⚙️ Como a Integração Funciona na Prática?
 Existem três caminhos principais para o seu código conversar com o PostgreSQL:
 Conexões Nativas / Drivers: A sua linguagem usa uma biblioteca que sabe exatamente como mandar mensagens pela rede (geralmente na porta 5432) direto para o motor do PostgreSQL
