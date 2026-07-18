@@ -1,7 +1,9 @@
 # Aprendendo-com-a-IA
 
 
-OBJETIVOS: Criar um caderno temático usando as ferramentas do notebookLM. A ideia desse caderno temático é aprender o que é um banco de dados relacional e como aplicar utilizando o software PostegreSQl. 
+OBJETIVOS: 
+
+Criar um caderno temático usando as ferramentas do notebookLM. A ideia desse caderno temático é aprender o que é um banco de dados relacional e como aplicar utilizando o software PostegreSQl. 
 
 FONTES UTILIZADAS:
 
