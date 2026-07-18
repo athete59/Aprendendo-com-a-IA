@@ -249,6 +249,7 @@ Além dessas, o PostgreSQL tem suporte excelente para Go, Rust, Ruby e Julia
 .
 
 ⚙️ Como a Integração Funciona na Prática?
+
 Existem três caminhos principais para o seu código conversar com o PostgreSQL:
 Conexões Nativas / Drivers: A sua linguagem usa uma biblioteca que sabe exatamente como mandar mensagens pela rede (geralmente na porta 5432) direto para o motor do PostgreSQL
 .
